@@ -38,12 +38,13 @@
     \item Brettspiel für 2 Personen (Schwarz vs. Weiß)
     \item vor min. 2500 Jahren im antiken China erfunden
     \item Spielbrett: quadratisches Gitter, auf Schnittpunkte werden Steine gesetzt
+          (typische Größen: 9x9, 19x19)
     \item Ziel: am Ende mehr als die Hälfte des Bretts zu besitzen
   \end{itemize}
   \vspace{0.1cm}
   \noindent\makebox[\textwidth]{
   \hspace{-1cm}
-  \includegraphics[height=4.5cm]{images/go_example.jpg}
+  \includegraphics[height=5cm]{images/go_example.jpg}
   }
 }
 
@@ -70,8 +71,8 @@
 \includegraphics[height=4cm]{images/rules_liberty.jpg}
 \captionof{figure}{Freiheiten}
 
-\includegraphics[height=3cm]{images/rules_capture1.jpg}
-\includegraphics[height=3cm]{images/rules_capture2.jpg}
+\includegraphics[height=2cm]{images/rules_capture1.jpg}
+\includegraphics[height=2cm]{images/rules_capture2.jpg}
 \captionof{figure}{Schlagen 1}
 }
 
@@ -152,25 +153,55 @@
 
 \frame{\frametitle{Strategie}
   \begin{itemize}
-    \item durch Kenntnisse über Leben und Tod wissen Spieler oft schon früh,
-          dass Gebiet sicher ist
-    \item Eigene Steine verbinden, gegnerische trennen (schneiden)
     \item nicht in einzelnen Steinen, sondern in Regionen des Bretts denken
-    \item Tauschhandel mit dem Gegner, man kann nicht alles haben $\rightarrow$ Kompromissbereitschaft!
-    \item Genügsamkeit vs Gier (man braucht nur einen Punkt mehr)
-    \item Zentrum vs Ecke / Ränder
+    \item durch Kenntnisse über Leben und Tod wissen Spieler oft schon früh, wem Gebiet gehört
+    \item Gegner nicht vernichten, sondern mit ihm tauschen
+    \item Kompromissbereitschaft
+    \item Effizienz (wenige Steine, viel Wirkung), Zusammenarbeit der Steine
+    \item Eigene Steine verbinden, gegnerische trennen (schneiden)
+    \item Zentrum vs Ecken / Ränder
+    \item Wie eng sollen die Steine beieinander sein? Ausbreitung vs. Sicherheit
+  \end{itemize}
+ \centering
+ \vspace{0.1cm}
+{
+\includegraphics[height=0.9cm]{images/strategy_dist1.jpg}
+\includegraphics[height=0.9cm]{images/strategy_dist2.jpg}
+\includegraphics[height=0.9cm]{images/strategy_dist3.jpg}
+\includegraphics[height=0.9cm]{images/strategy_dist4.jpg}
+}
+}
+
+\frame{\frametitle{KI für Go}
+  \centering
+  \includegraphics[height=2cm]{images/ai_territory.jpg}
+  \hspace{0.2cm}
+  \includegraphics[height=2cm]{images/ai_branching.jpg}
+  \flushleft
+  \begin{itemize}
+    \item Brettspiele eignen sich als Testfeld für KI
+    \item AI-Hardness: Versuch via Go als Zwischenstufe allgemeine KI zu entwickeln
+  \end{itemize}
+  
+  \vspace{0.2cm}
+  {\bf Schwierigkeiten:}
+  \begin{itemize}
+    \item hoher Branching-Faktor, nicht durch Brute-Force zu bewältigen
+          (Menschen sprechen von Intuition)
+    \item oft sind Steine bereits verloren, obwohl sie noch viele Freiheiten haben
+    \item Bewertung einer Stellung schwierig (Anzahl Steine ist nicht aussagekräftig)
   \end{itemize}
 }
 
-\frame{\frametitle{Bezug zur Informatik}
+\frame{\frametitle{KI für Go: Minimax}
+  \centering
+  \includegraphics[height=4cm]{images/ai_minimax.jpg}
+  \vspace{0.2cm}
   \begin{itemize}
-    \item AlphaGo
-  \end{itemize}
-}
-
-\frame{\frametitle{Bezug zur Informatik}
-  \begin{itemize}
-    \item Minmax
+    \item Minimax (1960) $\rightarrow$ MCTS (2008) $\rightarrow$ DCNN (2016)
+    \item Minimax funktioniert für Taktiken, nicht aber auf dem ganzen Brett
+    \item frühere Programme hatten viel Expertenwissen, mittlerweile immer mehr Selbstständigkeit
+    \item 2016 wurde Go-Weltmeister Lee Sedol von AlphaGo besiegt
   \end{itemize}
 }
 
@@ -180,7 +211,7 @@
           nach Spielstärke bewertet (30 kyu - 1 kyu, 1 dan - 9 dan)
     \item Go hat Mechanismus, um Gewinnchancen bei ungleich starken
           Spielern gleich zu halten
-    \item schwächerer Spieer platziert vor Spielstart mehrere Steine auf
+    \item schwächerer Spieler platziert vor Spielstart mehrere Steine auf
           bestimmte Punkte
           
     \vspace{0.3cm}
@@ -201,7 +232,8 @@
     \includegraphics[height=3cm, width=3cm]{images/other_morris.jpg}
     }
   \begin{itemize}
-    \item keine unterschiedlichen Spielfiguren: der Wert eines Steins definiert sich einzig durch seine Beziehung zu anderen Steinen!
+    \item keine unterschiedlichen Spielfiguren: der Wert eines Steins
+    definiert sich einzig durch seine Beziehung zu anderen Steinen!
     \item größeres Spielbrett, mehr mögliche Züge / Brettstellungen
     \item kein Remis (je nach Regelvariante)
     \item Punktewertung: jeder Punkt ist gleich viel wert, kein einzelnes Ziel (König)
@@ -216,7 +248,7 @@
     \item Regeln einfach, aber man lernt nie aus
     \item viel mögliche Abwechslung bei Strategien
     \item abstrakte virtuelle Realität: bildet die Welt ab
-    \item Lektionen fürs Leben: diszipliniert lernen, mit Verlusten umgehen
+    \item Lektionen fürs Leben: diszipliniert lernen, mit Verlusten umgehen,
     \item lange Tradition, viele Spieler auf der ganzen Welt
     \item Computer
   \end{itemize}
